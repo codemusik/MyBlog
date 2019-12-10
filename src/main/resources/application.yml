@@ -1,0 +1,15 @@
+spring:
+  thymeleaf:
+    mode: HTML
+  profiles:
+    active: dev
+  messages:
+    basename: i18n/messages
+  mvc:
+    favicon:
+      enabled: false
+
+#评论者头像
+comment.avatar: /images/avatar.png
+
+
