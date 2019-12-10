@@ -4,6 +4,11 @@ body {
     background-attachment: fixed;
 }
 
+/*---height----*/
+.m-min-height{
+    min-height: 100% !important;
+}
+
 .m-padded-mini {
     padding: 0.2em !important;
 }
