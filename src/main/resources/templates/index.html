@@ -58,13 +58,14 @@
                                 </div>
                             </div>
                             <div class="extra content links-of-author">
-                                <a href="#" class="ui circular github icon button" data-content="https://github.com/codemusik" data-position="bottom left"><i class="github icon"></i></a>
-                                <a href="#" class="ui wechat circular icon button"><i class="weixin icon"></i></a>
-                                <a href="#" class="ui qq circular icon button" data-content="2793054903" data-position="bottom center"><i class="qq icon"></i></a>
+                                <a class="ui circular github icon button" data-content="https://github.com/codemusik" data-position="bottom left"><i class="github icon"></i></a>
+                                <a class="ui wechat circular icon button"><i class="weixin icon"></i></a>
+                                <a class="ui qq circular icon button" data-content="2793054903" data-position="bottom center"><i class="qq icon"></i></a>
                             </div>
 
                             <div class="ui wechat-qr flowing popup transition hidden">
-                                <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image" style="width: 110px">
+                                <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image m-mobile-hide" style="width: 110px">
+                                <span class="m-mobile-show">Codemusik</span>
                             </div>
                         </div>
                     <!--</div>-->
@@ -429,18 +430,6 @@
                         </div>
                         <!--*/-->
                     </div>
-
-                    <!--&lt;!&ndash;footer&ndash;&gt;-->
-                    <!--<div class="ui bottom attached segment" th:if="${page.totalPages}>1">-->
-                        <!--<div class="ui middle aligned two column grid">-->
-                            <!--<div class="column extend.prev">-->
-                                <!--<a href="#" th:href="@{/(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini blue basic button">上一页</a>-->
-                            <!--</div>-->
-                            <!--<div class="right aligned column extend.next">-->
-                                <!--<a href="#" th:href="@{/(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini blue basic button">下一页</a>-->
-                            <!--</div>-->
-                        <!--</div>-->
-                    <!--</div>-->
 
                     <!--footer-->
                     <div class="ui bottom attached segment center aligned" id="pageBtns">
