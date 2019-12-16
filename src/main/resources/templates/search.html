@@ -104,12 +104,12 @@
             <a id="pageBtn1" href="#" th:href="@{'/search/' +${query}(page=${page.number}-1)}"  th:unless="${page.first}"><i class="large chevron left icon"></i></a>
             <a id="pageBtn2" href="#" th:href="@{'/search/' +${query}(page=0)}"  class="ui mini blue basic button">1</a>
             <!--<a href="#" th:href="@{/page=2}" th:unless="${page.number} &gt; 4"  class="ui mini blue basic button">2</a>-->
-            <span id="3" style="font-size: 30px;" th:unless="${page.number} &lt; 3">...</span>
+            <span id="3" style="font-size: 30px;color: #2185D0;" th:unless="${page.number} &lt; 3">...</span>
             <a id="pageBtn3" href="#" th:href="@{'/search/' +${query}(page=${page.number}-1)}" th:unless="${page.number &lt; 2 or page.number &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}"></a>
             <a id="pageBtn4" href="#" th:href="@{'/search/' +${query}(page=${page.number})}" th:unless="${page.number &lt; 1 or (page.number+1) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+1"></a>
             <a id="pageBtn5" href="#" th:href="@{'/search/' +${query}(page=${page.number}+1)}" th:unless="${(page.number+2) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+2"></a>
             <!--<span th:unless="${page.number}&lt;(${page.totalPages}-3) and ${page.totalPages}&lt;5">...</span>-->
-            <span id="7" style="font-size: 30px;" th:unless="${page.number &gt;= (page.totalPages-3) or page.totalPages &lt; 4}">...</span>
+            <span id="7" style="font-size: 30px;color: #2185D0;" th:unless="${page.number &gt;= (page.totalPages-3) or page.totalPages &lt; 4}">...</span>
             <a id="pageBtn6" href="#" th:href="@{'/search/' +${query}(page=${page.totalPages}-1)}" th:unless="${page.number} == 0" class="ui mini blue basic button" th:text="${page.totalPages}"></a>
             <a id="pageBtn7" href="#" th:href="@{'/search/' +${query}(page=${page.number}+1)}"  th:unless="${page.last}"><i class="large chevron right icon"></i></a>
         </div>
