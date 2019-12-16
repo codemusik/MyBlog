@@ -99,16 +99,20 @@
         </div>
 
         <!--footer-->
-        <div class="ui bottom attached segment" th:if="${page.totalPages}>1">
-            <div class="ui middle aligned two column grid">
-                <div class="column">
-                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}-1)}"  th:unless="${page.first}" class="ui mini blue basic button">上一页</a>
-                </div>
-                <div class="right aligned column">
-                    <a href="#" th:href="@{'/tags/'+${activeTagId}(page=${page.number}+1)}"  th:unless="${page.last}" class="ui mini blue basic button">下一页</a>
-                </div>
-            </div>
+        <div class="ui bottom attached segment center aligned" id="pageBtns">
+            <a id="pageBtn1" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}-1)}"  th:unless="${page.first}"><i class="large chevron left icon"></i></a>
+            <a id="pageBtn2" href="#" th:href="@{'/tags/'+${activeTypeId}(page=0)}"  class="ui mini blue basic button">1</a>
+            <!--<a href="#" th:href="@{/page=2}" th:unless="${page.number} &gt; 4"  class="ui mini blue basic button">2</a>-->
+            <span id="3" style="font-size: 30px;" th:unless="${page.number} &lt; 3">...</span>
+            <a id="pageBtn3" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}-1)}" th:unless="${page.number &lt; 2 or page.number &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}"></a>
+            <a id="pageBtn4" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number})}" th:unless="${page.number &lt; 1 or (page.number+1) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+1"></a>
+            <a id="pageBtn5" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}+1)}" th:unless="${(page.number+2) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+2"></a>
+            <!--<span th:unless="${page.number}&lt;(${page.totalPages}-3) and ${page.totalPages}&lt;5">...</span>-->
+            <span id="7" style="font-size: 30px;" th:unless="${page.number &gt;= (page.totalPages-3) or page.totalPages &lt; 4}">...</span>
+            <a id="pageBtn6" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.totalPages}-1)}" th:unless="${page.number} == 0" class="ui mini blue basic button" th:text="${page.totalPages}"></a>
+            <a id="pageBtn7" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}+1)}"  th:unless="${page.last}"><i class="large chevron right icon"></i></a>
         </div>
+        <!--footer-->
 
     </div>
 </div>
@@ -124,7 +128,19 @@
 <script src="https://cdn.jsdelivr.net/semantic-ui/2.2.4/semantic.min.js"></script>
 <!--/*/</th:block>/*/-->
 
-<script>
+<script th:inline="javascript">
+    window.onload = function () {
+        var pageNumber = /*[[${page.number}]]*/"";
+        console.log(pageNumber);
+        var aList = $('#pageBtns').children();
+        console.log(aList);
+        for (var i = 0; i < aList.length; i++) {
+            var a = aList[i];
+            if(a.text == (pageNumber + 1)){
+                $(a).toggleClass('basic');
+            }
+        }
+    };
     $('.menu.toggle').click(function () {
         $('.m-item').toggleClass('m-mobile-hide');
     });
