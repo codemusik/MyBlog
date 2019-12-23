@@ -21,13 +21,13 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui blue header item">Codemusik</h2>
-            <a href="#" th:href="@{/}" class="m-item item m-mobile-hide menu-item-home" th:classappend="${n==1} ? 'active'"><i class="home icon"></i><span th:text="#{nav.index}">首页</span></a>
-            <a href="#" th:href="@{/types/-1}" class="m-item item m-mobile-hide menu-item-categories" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i><span th:text="#{nav.categories}">分类</span></a>
-            <a href="#" th:href="@{/tags/-1}" class="m-item item m-mobile-hide menu-item-tags" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i><span th:text="#{nav.tags}">标签</span></a>
-            <a href="#" th:href="@{/archives}" class="m-item item m-mobile-hide menu-item-archives" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i><span th:text="#{nav.archives}">归档</span></a>
-            <!--<a href="#" th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini info icon"></i>关于我</a>-->
+            <a  th:href="@{/}" class="m-item item m-mobile-hide menu-item-home" th:classappend="${n==1} ? 'active'"><i class="home icon"></i><span th:text="#{nav.index}">首页</span></a>
+            <a  th:href="@{/types/-1}" class="m-item item m-mobile-hide menu-item-categories" th:classappend="${n==2} ? 'active'"><i class="idea icon"></i><span th:text="#{nav.categories}">分类</span></a>
+            <a  th:href="@{/tags/-1}" class="m-item item m-mobile-hide menu-item-tags" th:classappend="${n==3} ? 'active'"><i class="tags icon"></i><span th:text="#{nav.tags}">标签</span></a>
+            <a  th:href="@{/archives}" class="m-item item m-mobile-hide menu-item-archives" th:classappend="${n==4} ? 'active'"><i class="clone icon"></i><span th:text="#{nav.archives}">归档</span></a>
+            <!--<a  th:href="@{/about}" class="m-item item m-mobile-hide" th:classappend="${n==5} ? 'active'"><i class="mini info icon"></i>关于我</a>-->
             <div class="right m-item item m-mobile-hide menu-item-search">
-                <form name="search" action="#" th:action="@{/search}" method="post" target="_blank">
+                <form name="search" action="#" th:action="@{/search}" method="post" >
                     <div class="ui icon inverted transparent input m-margin-tb-tiny">
                         <input type="text" name="query" placeholder="Search...." th:value="${query}">
                         <i onclick="document.forms['search'].submit()" class="search link icon"></i>
@@ -36,7 +36,7 @@
             </div>
         </div>
     </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <a  class="ui menu toggle black icon button m-right-top m-mobile-show">
         <i class="sidebar icon"></i>
     </a>
 </nav>
@@ -58,10 +58,10 @@
             <!--<h4 class="ui inverted header m-text-thin m-text-spaced " >最新博客</h4>-->
             <!--<div id="newblog-container">-->
             <!--<div class="ui inverted link list" th:fragment="newblogList">-->
-            <!--<a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事（User Story）</a>-->
+            <!--<a  th:href="@{/blog/{id}(id=${blog.id})}"  class="item m-text-thin" th:each="blog : ${newblogs}" th:text="${blog.title}">用户故事（User Story）</a>-->
             <!--&lt;!&ndash;/*&ndash;&gt;-->
-            <!--<a href="#" class="item m-text-thin">用户故事（User Story）</a>-->
-            <!--<a href="#" class="item m-text-thin">用户故事（User Story）</a>-->
+            <!--<a  class="item m-text-thin">用户故事（User Story）</a>-->
+            <!--<a  class="item m-text-thin">用户故事（User Story）</a>-->
             <!--&lt;!&ndash;*/&ndash;&gt;-->
             <!--</div>-->
             <!--</div>-->
@@ -69,8 +69,8 @@
             <div class="four wide column">
                 <h4 class="ui inverted header m-text-thin m-text-spaced ">联系我</h4>
                 <div class="ui inverted link list">
-                    <a href="#" class="item m-text-thin" th:text="#{index.email}">Email：codemusik@163.com</a>
-                    <a href="#" class="item m-text-thin" th:text="#{index.qq}">QQ：2793054903</a>
+                    <a  class="item m-text-thin" th:text="#{index.email}">Email：codemusik@163.com</a>
+                    <a  class="item m-text-thin" th:text="#{index.qq}">QQ：2793054903</a>
                 </div>
             </div>
             <div class="eight wide column">

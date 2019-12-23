@@ -14,11 +14,11 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui blue header item">Blog</h2>
-            <a href="#" class=" m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-            <a href="#" class=" m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-            <a href="#" class="active m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+            <a  class=" m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+            <a  class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+            <a  class=" m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <a  class="active m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
+            <a  class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
             <div class="right m-item item m-mobile-hide">
                 <div class="ui icon inverted transparent input m-margin-tb-tiny">
                     <input type="text" placeholder="Search....">
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <a  class="ui menu toggle black icon button m-right-top m-mobile-show">
         <i class="sidebar icon"></i>
     </a>
 </nav>
@@ -50,7 +50,7 @@
         <th:block th:each="item : ${archiveMap}">
             <h3 class="ui center aligned header" th:text="${item.key}">2017</h3>
             <div class="ui fluid vertical menu">
-                <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="item" th:each="blog : ${item.value}">
+                <a  th:href="@{/blog/{id}(id=${blog.id})}"  class="item" th:each="blog : ${item.value}">
                     <span>
                         <i class="mini blue circle icon"></i><span th:text="${blog.title}">关于刻意练习的清单</span>
                         <div class="ui blue basic left pointing label m-padded-mini " th:text="${#dates.format(blog.updateTime,'MMMdd')}">9月03</div>

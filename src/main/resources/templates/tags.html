@@ -14,11 +14,11 @@
     <div class="ui container">
         <div class="ui inverted secondary stackable menu">
             <h2 class="ui blue header item">Blog</h2>
-            <a href="#" class=" m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
-            <a href="#" class="active m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
-            <a href="#" class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
+            <a  class=" m-item item m-mobile-hide"><i class="mini home icon"></i>首页</a>
+            <a  class="m-item item m-mobile-hide"><i class="mini idea icon"></i>分类</a>
+            <a  class="active m-item item m-mobile-hide"><i class="mini tags icon"></i>标签</a>
+            <a  class="m-item item m-mobile-hide"><i class="mini clone icon"></i>归档</a>
+            <a  class="m-item item m-mobile-hide"><i class="mini info icon"></i>关于我</a>
             <div class="right m-item item m-mobile-hide">
                 <div class="ui icon inverted transparent input m-margin-tb-tiny">
                     <input type="text" placeholder="Search....">
@@ -27,7 +27,7 @@
             </div>
         </div>
     </div>
-    <a href="#" class="ui menu toggle black icon button m-right-top m-mobile-show">
+    <a  class="ui menu toggle black icon button m-right-top m-mobile-show">
         <i class="sidebar icon"></i>
     </a>
 </nav>
@@ -48,7 +48,7 @@
         </div>
 
         <div class="ui attached segment m-padded-tb-large">
-            <a href="#" th:href="@{/tags/{id}(id=${tag.id})}"  class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${tags}">
+            <a  th:href="@{/tags/{id}(id=${tag.id})}"  class="ui basic left pointing large label m-margin-tb-tiny" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${tags}">
                 <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
             </a>
         </div>
@@ -57,7 +57,7 @@
             <div class="ui padded vertical segment m-padded-tb-large" th:each="blog : ${page.content}">
                 <div class="ui middle aligned mobile reversed stackable grid" >
                     <div class="eleven wide column">
-                        <h3 class="ui header" ><a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank" class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗?</a></h3>
+                        <h3 class="ui header" ><a  th:href="@{/blog/{id}(id=${blog.id})}"  class="m-black" th:text="${blog.title}">你真的理解什么是财富自由吗?</a></h3>
                         <p class="m-text" th:text="|${blog.description}......|">正确做好任何一件事情的前提是清晰、正确的理解目标。而事实是，我们很多人很多时候根本没有对目标正确的定义，甚至根本从来就没有想过，只是大家都那么做而已…...</p>
                         <div class="ui grid">
                             <div class="row">
@@ -65,7 +65,7 @@
                                     <div class="ui mini horizontal link list">
                                         <div class="item">
                                             <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image">
-                                            <div class="content"><a href="#" class="header" th:text="${blog.user.nickname}" >李仁密</a></div>
+                                            <div class="content"><a  class="header" th:text="${blog.user.nickname}" >李仁密</a></div>
                                         </div>
                                         <div class="item">
                                             <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-10-01</span>
@@ -76,19 +76,19 @@
                                     </div>
                                 </div>
                                 <div class="right aligned five wide column">
-                                    <a href="#" th:href="@{/types/{id}(id=${blog.type.id})}" target="_blank" class="ui blue basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
+                                    <a  th:href="@{/types/{id}(id=${blog.type.id})}"  class="ui blue basic label m-padded-tiny m-text-thin" th:text="${blog.type.name}">认知升级</a>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="column">
-                                    <a href="#" th:href="@{/tags/{id}(id=${tag.id})}" class="ui  basic left pointing label m-padded-mini m-text-thin" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</a>
+                                    <a  th:href="@{/tags/{id}(id=${tag.id})}" class="ui  basic left pointing label m-padded-mini m-text-thin" th:classappend="${tag.id==activeTagId} ? 'blue'" th:each="tag : ${blog.tags}" th:text="${tag.name}">方法论</a>
                                 </div>
                             </div>
                         </div>
                     </div>
 
                     <div class="five wide column">
-                        <a href="#" th:href="@{/blog/{id}(id=${blog.id})}" target="_blank">
+                        <a  th:href="@{/blog/{id}(id=${blog.id})}" >
                             <img src="https://unsplash.it/800/450?image=1005" th:src="@{${blog.firstPicture}}"  alt="" class="ui rounded image">
                         </a>
                     </div>
@@ -100,17 +100,17 @@
 
         <!--footer-->
         <div class="ui bottom attached segment center aligned" id="pageBtns">
-            <a id="pageBtn1" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}-1)}"  th:unless="${page.first}"><i class="large chevron left icon"></i></a>
-            <a id="pageBtn2" href="#" th:href="@{'/tags/'+${activeTypeId}(page=0)}"  class="ui mini blue basic button">1</a>
-            <!--<a href="#" th:href="@{/page=2}" th:unless="${page.number} &gt; 4"  class="ui mini blue basic button">2</a>-->
+            <a id="pageBtn1"  th:href="@{'/tags/'+${activeTypeId}(page=${page.number}-1)}"  th:unless="${page.first}"><i class="large chevron left icon"></i></a>
+            <a id="pageBtn2"  th:href="@{'/tags/'+${activeTypeId}(page=0)}"  class="ui mini blue basic button">1</a>
+            <!--<a  th:href="@{/page=2}" th:unless="${page.number} &gt; 4"  class="ui mini blue basic button">2</a>-->
             <span id="3" style="font-size: 30px;color: #2185D0;" th:unless="${page.number} &lt; 3">...</span>
-            <a id="pageBtn3" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}-1)}" th:unless="${page.number &lt; 2 or page.number &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}"></a>
-            <a id="pageBtn4" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number})}" th:unless="${page.number &lt; 1 or (page.number+1) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+1"></a>
-            <a id="pageBtn5" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}+1)}" th:unless="${(page.number+2) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+2"></a>
+            <a id="pageBtn3"  th:href="@{'/tags/'+${activeTypeId}(page=${page.number}-1)}" th:unless="${page.number &lt; 2 or page.number &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}"></a>
+            <a id="pageBtn4"  th:href="@{'/tags/'+${activeTypeId}(page=${page.number})}" th:unless="${page.number &lt; 1 or (page.number+1) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+1"></a>
+            <a id="pageBtn5"  th:href="@{'/tags/'+${activeTypeId}(page=${page.number}+1)}" th:unless="${(page.number+2) &gt;= page.totalPages}"  class="ui mini blue basic button" th:text="${page.number}+2"></a>
             <!--<span th:unless="${page.number}&lt;(${page.totalPages}-3) and ${page.totalPages}&lt;5">...</span>-->
             <span id="7" style="font-size: 30px;color: #2185D0;" th:unless="${page.number &gt;= (page.totalPages-3) or page.totalPages &lt; 4}">...</span>
-            <a id="pageBtn6" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.totalPages}-1)}" th:unless="${page.number} == 0" class="ui mini blue basic button" th:text="${page.totalPages}"></a>
-            <a id="pageBtn7" href="#" th:href="@{'/tags/'+${activeTypeId}(page=${page.number}+1)}"  th:unless="${page.last}"><i class="large chevron right icon"></i></a>
+            <a id="pageBtn6"  th:href="@{'/tags/'+${activeTypeId}(page=${page.totalPages}-1)}" th:unless="${page.number} == 0" class="ui mini blue basic button" th:text="${page.totalPages}"></a>
+            <a id="pageBtn7"  th:href="@{'/tags/'+${activeTypeId}(page=${page.number}+1)}"  th:unless="${page.last}"><i class="large chevron right icon"></i></a>
         </div>
         <!--footer-->
 
