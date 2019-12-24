@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
-    url: jdbc:mysql://10.20.2.105:3306/test_blog?useUnicode=true&characterEncoding=utf-8
+    url: jdbc:mysql://10.20.2.105:3306/test_blog?useUnicode=true&characterEncoding=utf-8&useSSL=false
     username: root
     password: rWd3Hb+AzNg3IXF1b5vD+g==
   jpa:
@@ -12,7 +12,7 @@ spring:
 logging:
   level:
     root: info
-    com.lrm: debug
+    com.codemusik: debug
   file: log/blog-dev.log
 
 

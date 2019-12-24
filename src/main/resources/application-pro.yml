@@ -12,7 +12,7 @@ spring:
 logging:
   level:
     root: warn
-    com.lrm: info
+    com.codemusik: info
   file: log/blog-pro.log
 
 
