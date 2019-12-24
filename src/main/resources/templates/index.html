@@ -39,8 +39,7 @@
                 <!--左边个人简介-->
                 <div class="four wide column animated slideInLeft">
                     <!--个人简介-->
-                    <!--<div class="ui segment">-->
-                        <div class="ui card fluid ">
+                    <div class="ui card fluid ">
                             <div class="image site-author">
                                 <img src="https://picsum.photos/id/1/800/600">
                             </div>
@@ -65,10 +64,42 @@
 
                             <div class="ui wechat-qr flowing popup transition hidden">
                                 <img src="../static/images/wechat.jpg" th:src="@{/images/wechat.jpg}" alt="" class="ui rounded image m-mobile-hide" style="width: 110px">
-                                <span class="m-mobile-show">Codemusik</span>
+                                <span class="m-mobile-show">公众号：Codemusik</span>
                             </div>
                         </div>
-                    <!--</div>-->
+
+                    <!--好友列表-->
+                    <div class="ui segments m-margin-top-large">
+                        <div class="ui secondary segment">
+                            <div class="ui two column grid">
+                                <div class="column">
+                                    <i class="users icon"></i>好友
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ui blue segment">
+                            <div class="ui cards">
+                                <div class="card">
+                                    <div class="content">
+                                        <div class="header">张恕征</div>
+                                        <div class="meta">Friend</div>
+                                        <div class="description">
+                                            开源项目《<a href="https://github.com/shuzheng/zheng" target="_blank">zheng</a>》的作者
+                                        </div>
+                                    </div>
+                                    <div class="extra content links-of-author">
+                                        <a class="ui mini circular github icon button" data-content="https://github.com/shuzheng" data-position="bottom left"><i class="github icon"></i></a>
+                                        <a class="ui mini zheng circular icon button"><i class="weixin icon"></i></a>
+                                    </div>
+
+                                    <div class="ui zheng-qr flowing popup transition hidden">
+                                        <img src="../static/images/zheng.png" th:src="@{/images/zheng.png}" alt="" class="ui rounded image m-mobile-hide" style="width: 110px">
+                                        <span class="m-mobile-show">公众号：张恕征</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <!--中间博客列表-->
@@ -238,6 +269,10 @@
     });
     $('.wechat').popup({
         popup : $('.wechat-qr'),
+        position: 'bottom center'
+    });
+    $('.zheng').popup({
+        popup : $('.zheng-qr'),
         position: 'bottom center'
     });
     $('.qq').popup();
