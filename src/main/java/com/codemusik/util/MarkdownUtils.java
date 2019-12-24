@@ -67,9 +67,6 @@ public class MarkdownUtils {
             if (node instanceof TableBlock) {
                 attributes.put("class", "ui celled table");
             }
-            if (node instanceof ListBlock && node.getParent() instanceof Document) {
-                attributes.put("style", "overflow:auto");
-            }
         }
     }
 
