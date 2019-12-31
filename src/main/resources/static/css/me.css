@@ -1,3 +1,8 @@
+body {
+    background: url("../images/bg.png");
+    background-attachment: fixed;
+}
+
 /*---height----*/
 .m-min-height{
     min-height: 100% !important;
