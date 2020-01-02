@@ -311,25 +311,36 @@
 
     //评论表单验证
     $('.ui.form').form({
+        inline : true,
         fields: {
-            title: {
+            content: {
                 identifier: 'content',
                 rules: [{
                     type: 'empty',
                     prompt: '请输入评论内容'
-                }
+                },{
+                    type: 'maxLength[255]',
+                    prompt: '评论内容字数过多，请不要超过255个字符'
+                },
                 ]
             },
-            content: {
+            nickname: {
                 identifier: 'nickname',
                 rules: [{
                     type: 'empty',
-                    prompt: '请输入你的大名'
+                    prompt: '请输入昵称'
+                },{
+                    type: 'regExp',
+                    value: '/^[0-9a-zA-Z\u4E00-\u9FA5]*$/g',
+                    prompt: '昵称包含非法字符，请使用数字、字母或者汉字'
                 }]
             },
-            type: {
+            email: {
                 identifier: 'email',
                 rules: [{
+                    type: 'empty',
+                    prompt: '请输入邮箱地址'
+                },{
                     type: 'email',
                     prompt: '请填写正确的邮箱地址'
                 }]
