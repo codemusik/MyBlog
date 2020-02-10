@@ -278,9 +278,7 @@
     });
 
     var serurl = /*[[#{blog.serurl}]]*/"127.0.0.1:8080";
-    console.log("serurl:" + serurl);
     var url = /*[[@{/blog/{id}(id=${blog.id})}]]*/"";
-    console.log("url:" + url);
     var qrcode = new QRCode("qrcode", {
         text: serurl+url,
         width: 110,

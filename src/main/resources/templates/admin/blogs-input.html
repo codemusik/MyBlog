@@ -63,9 +63,9 @@
                         <!--<div class="item" data-value="翻译">翻译</div>-->
                         <!--</div>-->
 
-                        <input type="hidden" name="flag.id" th:value="*{flag}!=null ? *{flag.id}">
+                        <input type="hidden" name="flag.id" th:value="*{flag}!=null ? *{flag.id} : 1">
                         <i class="dropdown icon"></i>
-                        <div class="text">原创</div>
+                        <div class="default text">原创</div>
                         <div class="menu">
                             <div th:each="flag : ${flags}" class="item" data-value="1" th:data-value="${flag.id}" th:text="${flag.name}">错误日志</div>
                         </div>

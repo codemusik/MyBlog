@@ -131,9 +131,7 @@
 <script th:inline="javascript">
     window.onload = function () {
         var pageNumber = /*[[${page.number}]]*/"";
-        console.log(pageNumber);
         var aList = $('#pageBtns').children();
-        console.log(aList);
         for (var i = 0; i < aList.length; i++) {
             var a = aList[i];
             if(a.text == (pageNumber + 1)){
