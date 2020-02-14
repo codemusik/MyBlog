@@ -50,7 +50,7 @@
         <div class="ui attached segment m-padded-tb-large">
             <div class="ui labeled button m-margin-tb-tiny" th:each="type : ${types}">
                 <a  th:href="@{/types/{id}(id=${type.id})}" class="ui basic  button" th:classappend="${type.id==activeTypeId} ? 'blue'" th:text="${type.name}">思考与感悟</a>
-                <div class="ui basic  left pointing label" th:classappend="${type.id==activeTypeId} ? 'blue'" th:text="${#arrays.length(type.blogs)}">24</div>
+                <div class="ui basic  left pointing label" th:classappend="${type.id==activeTypeId} ? 'blue'" th:text="${type.blog_number}">24</div>
             </div>
         </div>
 
@@ -127,9 +127,7 @@
 <script th:inline="javascript">
     window.onload = function () {
         var pageNumber = /*[[${page.number}]]*/"";
-        console.log(pageNumber);
         var aList = $('#pageBtns').children();
-        console.log(aList);
         for (var i = 0; i < aList.length; i++) {
             var a = aList[i];
             if(a.text == (pageNumber + 1)){

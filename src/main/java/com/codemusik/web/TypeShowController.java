@@ -1,6 +1,6 @@
 package com.codemusik.web;
 
-import com.codemusik.po.Type;
+import com.codemusik.bo.TypeOrTagBlog;
 import com.codemusik.service.BlogService;
 import com.codemusik.service.TypeService;
 import com.codemusik.vo.BlogQuery;
@@ -28,13 +28,13 @@ public class TypeShowController {
     @GetMapping("/types/{id}")
     public String types(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         @PathVariable Long id, Model model) {
-        List<Type> types = typeService.listTypeTop(10000);
+        List<TypeOrTagBlog> typeBlogs = typeService.listTypeBlog();
         if (id == -1) {
-           id = types.get(0).getId();
+           id = typeBlogs.get(0).getId().longValue();
         }
         BlogQuery blogQuery = new BlogQuery();
         blogQuery.setTypeId(id);
-        model.addAttribute("types", types);
+        model.addAttribute("types", typeBlogs);
         model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
         model.addAttribute("activeTypeId", id);
         return "types";

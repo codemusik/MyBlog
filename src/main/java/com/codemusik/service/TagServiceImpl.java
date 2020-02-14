@@ -1,8 +1,10 @@
 package com.codemusik.service;
 
 import com.codemusik.NotFoundException;
+import com.codemusik.bo.TypeOrTagBlog;
 import com.codemusik.dao.TagRepository;
 import com.codemusik.po.Tag;
+import com.codemusik.util.EntityUtils;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -50,10 +52,9 @@ public class TagServiceImpl implements TagService {
     }
 
     @Override
-    public List<Tag> listTagTop(Integer size) {
-        Sort sort = new Sort(Sort.Direction.DESC, "blogs.size");
-        Pageable pageable = new PageRequest(0, size, sort);
-        return tagRepository.findTop(pageable);
+    public List<TypeOrTagBlog> listTagBlog() {
+        List<Object[]> objects = tagRepository.findListTop();
+        return EntityUtils.castEntity(objects,TypeOrTagBlog.class,new TypeOrTagBlog());
     }
 
 

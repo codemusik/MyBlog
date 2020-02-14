@@ -1,5 +1,6 @@
 package com.codemusik.service;
 
+import com.codemusik.bo.TypeOrTagBlog;
 import com.codemusik.po.Type;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +19,7 @@ public interface TypeService {
 
     List<Type> listType();
 
-    List<Type> listTypeTop(Integer size);
+    List<TypeOrTagBlog> listTypeBlog();
 
     Type updateType(Long id,Type type);
 

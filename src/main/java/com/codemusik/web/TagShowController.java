@@ -1,5 +1,6 @@
 package com.codemusik.web;
 
+import com.codemusik.bo.TypeOrTagBlog;
 import com.codemusik.po.Tag;
 import com.codemusik.service.BlogService;
 import com.codemusik.service.TagService;
@@ -27,9 +28,9 @@ public class TagShowController {
     @GetMapping("/tags/{id}")
     public String tags(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
                         @PathVariable Long id, Model model) {
-        List<Tag> tags = tagService.listTagTop(10000);
+        List<TypeOrTagBlog> tags = tagService.listTagBlog();
         if (id == -1) {
-           id = tags.get(0).getId();
+           id = tags.get(0).getId().longValue();
         }
         model.addAttribute("tags", tags);
         model.addAttribute("page", blogService.listBlog(id,pageable));

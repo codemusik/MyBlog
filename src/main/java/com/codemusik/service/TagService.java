@@ -1,5 +1,6 @@
 package com.codemusik.service;
 
+import com.codemusik.bo.TypeOrTagBlog;
 import com.codemusik.po.Tag;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -18,7 +19,7 @@ public interface TagService {
 
     List<Tag> listTag();
 
-    List<Tag> listTagTop(Integer size);
+    List<TypeOrTagBlog> listTagBlog();
 
     List<Tag> listTag(String ids);
 

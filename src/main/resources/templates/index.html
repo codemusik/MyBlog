@@ -190,7 +190,7 @@
                             <div class="ui fluid vertical menu" >
                                 <a  th:href="@{/types/{id}(id=${type.id})}"  class="item"  th:each="type : ${types}">
                                     <span th:text="${type.name}">学习日志</span>
-                                    <div class="ui blue basic left pointing label" th:text="${#arrays.length(type.blogs)}">13</div>
+                                    <div class="ui blue basic left pointing label" th:text="${type.blog_number}">13</div>
                                 </a>
                             </div>
                         </div>
@@ -210,7 +210,7 @@
                         </div>
                         <div class="ui blue segment">
                             <a  th:href="@{/tags/{id}(id=${tag.id})}"  class="ui blue basic left pointing label m-margin-tb-tiny" th:each="tag : ${tags}">
-                                <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${#arrays.length(tag.blogs)}">23</div>
+                                <span th:text="${tag.name}">方法论</span> <div class="detail" th:text="${tag.blog_number}">23</div>
                             </a>
                         </div>
                     </div>
