@@ -1,6 +1,7 @@
 package com.codemusik.web;
 
 import com.codemusik.service.BlogService;
+import com.codemusik.service.CommentService;
 import com.codemusik.service.TagService;
 import com.codemusik.service.TypeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +27,9 @@ public class IndexController {
 
     @Autowired
     private TagService tagService;
+
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/")
     public String index(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,

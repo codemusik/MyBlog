@@ -1,5 +1,6 @@
 package com.codemusik.service;
 
+import com.codemusik.dao.BlogRepository;
 import com.codemusik.dao.CommentRepository;
 import com.codemusik.po.Comment;
 import org.springframework.beans.BeanUtils;
@@ -18,6 +19,9 @@ public class CommentServiceImpl implements CommentService {
     @Autowired
     private CommentRepository commentRepository;
 
+    @Autowired
+    private BlogRepository blogRepository;
+
     @Override
     public List<Comment> listCommentByBlogId(Long blogId) {
         Sort sort = new Sort("createTime");
@@ -33,6 +37,8 @@ public class CommentServiceImpl implements CommentService {
             comment.setParentComment(commentRepository.findOne(parentCommentId));
         } else {
             comment.setParentComment(null);
+            Long blogId = comment.getBlog().getId();
+            blogRepository.addCommentCount(blogId);
         }
         comment.setCreateTime(new Date());
         return commentRepository.save(comment);

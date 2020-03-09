@@ -19,7 +19,6 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
     @Query("select b from Blog b where b.published = true and b.title like ?1 or b.content like ?1")
     Page<Blog> findByQuery(String query,Pageable pageable);
 
-
     @Transactional
     @Modifying
     @Query("update Blog b set b.views = b.views+1 where b.id = ?1")
@@ -30,4 +29,9 @@ public interface BlogRepository extends JpaRepository<Blog, Long>, JpaSpecificat
 
     @Query("select b from Blog b where b.published = true and function('date_format',b.updateTime,'%Y') = ?1")
     List<Blog> findByYear(String year);
+
+    @Transactional
+    @Modifying
+    @Query("update Blog b set b.commentCount = b.commentCount+1 where b.id = ?1")
+    int addCommentCount(Long blogId);
 }

@@ -1,5 +1,7 @@
 package com.codemusik.po;
 
+import org.hibernate.annotations.ColumnDefault;
+
 import javax.persistence.*;
 import java.util.ArrayList;
 import java.util.Date;
@@ -48,6 +50,8 @@ public class Blog {
 
     @Transient
     private String tagIds;
+
+    private Integer commentCount;
 
     private String description;
 
@@ -207,6 +211,14 @@ public class Blog {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public Integer getCommentCount() {
+        return commentCount;
+    }
+
+    public void setCommentCount(Integer commentCount) {
+        this.commentCount = commentCount;
     }
 
     public void init() {

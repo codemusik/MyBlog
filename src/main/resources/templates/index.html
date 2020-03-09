@@ -126,15 +126,18 @@
                                     <div class="ui grid">
                                         <div class="eleven wide column">
                                             <div class="ui mini horizontal link list">
-                                                <div class="item">
-                                                    <img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image">
-                                                    <div class="content"><a  class="header" th:text="${blog.user.nickname}" >codemusik</a></div>
-                                                </div>
+                                                <!--<div class="item">-->
+                                                    <!--<img src="https://unsplash.it/100/100?image=1005" th:src="@{${blog.user.avatar}}"  alt="" class="ui avatar image">-->
+                                                    <!--<div class="content"><a  class="header" th:text="${blog.user.nickname}" >codemusik</a></div>-->
+                                                <!--</div>-->
                                                 <div class="item">
                                                     <i class="calendar icon"></i><span th:text="${#dates.format(blog.updateTime,'yyyy-MM-dd')}">2017-10-01</span>
                                                 </div>
                                                 <div class="item">
                                                     <i class="eye icon"></i> <span th:text="${blog.views}">2342</span>
+                                                </div>
+                                                <div class="item">
+                                                    <i class="comment icon"></i> <span th:text="${blog.commentCount}">2342</span>
                                                 </div>
                                             </div>
                                         </div>
