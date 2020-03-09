@@ -94,10 +94,7 @@ public class CommentServiceImpl implements CommentService {
         if (comment.getReplyComments().size()>0) {
             List<Comment> replys = comment.getReplyComments();
             for (Comment reply : replys) {
-                tempReplys.add(reply);
-                if (reply.getReplyComments().size()>0) {
-                    recursively(reply);
-                }
+                recursively(reply);
             }
         }
     }
