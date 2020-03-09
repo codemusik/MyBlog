@@ -50,12 +50,14 @@ public class BlogServiceImpl implements BlogService {
 
 
     @Override
-    public Page<Blog> listBlog(Pageable pageable, BlogQuery blog) {
+    public Page<Blog> listBlog(Pageable pageable, BlogQuery blog,boolean isAdmin) {
         return blogRepository.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
                 List<Predicate> predicates = new ArrayList<>();
-                predicates.add(cb.equal(root.<Boolean>get("published"), true));
+                if(!isAdmin){
+                    predicates.add(cb.equal(root.<Boolean>get("published"), true));
+                }
                 if (!"".equals(blog.getTitle()) && blog.getTitle() != null) {
                     predicates.add(cb.like(root.<String>get("title"), "%"+blog.getTitle()+"%"));
                 }
@@ -89,8 +91,12 @@ public class BlogServiceImpl implements BlogService {
         return blogRepository.findAll(new Specification<Blog>() {
             @Override
             public Predicate toPredicate(Root<Blog> root, CriteriaQuery<?> cq, CriteriaBuilder cb) {
+                List<Predicate> predicates = new ArrayList<>();
                 Join join = root.join("tags");
-                return cb.equal(join.get("id"),tagId);
+                predicates.add(cb.equal(join.get("id"),tagId));
+                predicates.add(cb.equal(root.<Boolean>get("published"), true));
+                cq.where(predicates.toArray(new Predicate[predicates.size()]));
+                return null;
             }
         },pageable);
     }

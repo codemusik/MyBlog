@@ -35,7 +35,7 @@ public class TypeShowController {
         BlogQuery blogQuery = new BlogQuery();
         blogQuery.setTypeId(id);
         model.addAttribute("types", typeBlogs);
-        model.addAttribute("page", blogService.listBlog(pageable, blogQuery));
+        model.addAttribute("page", blogService.listBlog(pageable, blogQuery,false));
         model.addAttribute("activeTypeId", id);
         return "types";
     }
