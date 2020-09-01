@@ -98,4 +98,10 @@ public class CommentServiceImpl implements CommentService {
             }
         }
     }
+
+
+    @Override
+    public void deleteCommentByBlogId(Long blogId){
+        commentRepository.deleteByBlogId(blogId);
+    }
 }

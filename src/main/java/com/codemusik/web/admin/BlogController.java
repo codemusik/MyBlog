@@ -2,10 +2,7 @@ package com.codemusik.web.admin;
 
 import com.codemusik.po.Blog;
 import com.codemusik.po.User;
-import com.codemusik.service.BlogService;
-import com.codemusik.service.FlagService;
-import com.codemusik.service.TagService;
-import com.codemusik.service.TypeService;
+import com.codemusik.service.*;
 import com.codemusik.vo.BlogQuery;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Pageable;
@@ -39,6 +36,8 @@ public class BlogController {
     private FlagService flagService;
     @Autowired
     private TagService tagService;
+    @Autowired
+    private CommentService commentService;
 
     @GetMapping("/blogs")
     public String blogs(@PageableDefault(size = 8, sort = {"updateTime"}, direction = Sort.Direction.DESC) Pageable pageable,
@@ -105,6 +104,8 @@ public class BlogController {
 
     @GetMapping("/blogs/{id}/delete")
     public String delete(@PathVariable Long id,RedirectAttributes attributes) {
+        //先删除评论，再删除博客
+        commentService.deleteCommentByBlogId(id);
         blogService.deleteBlog(id);
         attributes.addFlashAttribute("message", "删除成功");
         return REDIRECT_LIST;
